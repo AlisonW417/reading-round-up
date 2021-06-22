@@ -1,8 +1,8 @@
 # Project Notes 
 
 ## To do:
-[] add a license
-[] add a code of conduct 
+- [ ] add a license
+- [ ] add a code of conduct 
 
 ## Overview: 
 - this application will allow users to create a reading log and rate books they have read 
@@ -13,4 +13,4 @@
 - enter information about books they have logged
 - rate books 
 - see books rated by other users? 
-- start a book club/group (STRETCH GOAL)
+- start a book club/discussion group (STRETCH GOAL)
