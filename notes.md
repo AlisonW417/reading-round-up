@@ -12,5 +12,5 @@
 - log books they have read/plan to read 
 - enter information about books they have logged
 - rate books 
-- see books rated by other users? 
+- see books rated and logged by other users? 
 - start a book club/discussion group (STRETCH GOAL)
