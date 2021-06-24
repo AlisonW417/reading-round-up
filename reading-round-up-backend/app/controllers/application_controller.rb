@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
+    include ::ActionController::Cookies
+
     def current_user
-        # mock version of logged in user
-        User.first
+        User.find_by(id: session[:user_id])
     end 
 
     def logged_in?
