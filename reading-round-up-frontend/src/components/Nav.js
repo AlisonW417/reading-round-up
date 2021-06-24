@@ -8,7 +8,7 @@ const Nav = (props) => {
 
     return (
         <div>
-            { props.currentUser ? <h1>Welcome to Reading Round-up, {props.currentUser.username}</h1> : <h1>Welcome to Reading Round-up</h1> }
+            { props.currentUser ? <h1>Welcome to Reading Round-up, {props.currentUser.attributes.username}</h1> : <h1>Welcome to Reading Round-up</h1> }
             { props.currentUser ? <Logout /> : <Login /> }
         </div>
     )
