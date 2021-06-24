@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm"
+import { getBookList } from "./bookList"
 
 export const setCurrentUser = user => {
     return {
@@ -32,6 +33,7 @@ export const login = loginInfo => {
                 alert(resp.error)
             } else {
                 dispatch(setCurrentUser(resp.data))
+                dispatch(getBookList())
                 dispatch(resetLoginForm())
             }
         })
@@ -66,6 +68,7 @@ export const getCurrentUser = () => {
                 alert(resp.error)
             } else {
                 dispatch(setCurrentUser(resp.data))
+                dispatch(getBookList())
             }
         })
         .catch(err => console.log(err))
