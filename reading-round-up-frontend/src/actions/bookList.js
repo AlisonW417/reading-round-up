@@ -21,7 +21,7 @@ export const getBookList = () => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-                dispatch(setBookList())
+                dispatch(setBookList(resp.data))
             }
         })
         .catch(err => console.log(err))
