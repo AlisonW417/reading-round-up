@@ -5,6 +5,7 @@ import BookCard from './BookCard'
 const BookList = (props) => {
     const bookCards = props.books.map(book => <BookCard book={book} key={book.id} />)
     return (
+        // move this logic?
         bookCards.length > 0 ? bookCards : null
     )
 }
