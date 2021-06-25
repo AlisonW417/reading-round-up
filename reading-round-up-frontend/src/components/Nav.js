@@ -9,6 +9,7 @@ const Nav = (props) => {
     return (
         <div>
             { props.currentUser ? <h1>Welcome to Reading Round-up, {props.currentUser.attributes.username}</h1> : <h1>Welcome to Reading Round-up</h1> }
+            <button>Log in</button> OR <button>Sign up</button>
             { props.currentUser ? <Logout /> : <Login /> }
         </div>
     )
