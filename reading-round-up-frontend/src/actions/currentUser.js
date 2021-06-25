@@ -15,7 +15,7 @@ export const clearCurrentUser = () => {
     }
 }
 
-export const login = loginInfo => {
+export const login = (loginInfo, history) => {
     // console.log(loginInfo)
     return (dispatch) => {
         return fetch("http://localhost:3001/login", {
@@ -36,13 +36,14 @@ export const login = loginInfo => {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(getBookList())
                 dispatch(resetLoginForm())
+                history.push('/')
             }
         })
         .catch(err => console.log(err))
     }
 }
 
-export const signup = signupInfo => {
+export const signup = (signupInfo, history) => {
     return (dispatch) => {
         const newUserInfo = {
             user: signupInfo
@@ -65,6 +66,7 @@ export const signup = signupInfo => {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(getBookList())
                 dispatch(resetSignupForm())
+                history.push('/')
             }
         })
         .catch(err => console.log(err))

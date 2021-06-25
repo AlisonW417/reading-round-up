@@ -4,6 +4,8 @@
 - [ ] add a license
 - [ ] add a code of conduct 
 - [ ] add/double check validations
+- [ ] remove no one is logged in alert and other unnecessary messages in console
+- [ ] figure out navigation!
 
 ## Overview: 
 - this application will allow users to create a reading log and rate books they have read 
