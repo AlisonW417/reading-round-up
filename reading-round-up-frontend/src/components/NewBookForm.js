@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateNewBookForm } from '../actions/newBookForm'
 
-const NewBookForm = ( { newBookFormData, history }) => {
+const NewBookForm = ( { newBookFormData, updateNewBookForm, history }) => {
 
     const handleOnChange = event => {
         const newBookData = {
