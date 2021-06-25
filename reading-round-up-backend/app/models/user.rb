@@ -3,4 +3,7 @@ class User < ApplicationRecord
     has_many :books 
     has_many :ratings 
     has_many :rated_books, through: :ratings, source: :book
+
+    validates :name, :username, presence: true
+    validates :name, :username, uniqueness: true 
 end

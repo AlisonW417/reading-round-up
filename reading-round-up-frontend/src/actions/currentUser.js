@@ -1,5 +1,6 @@
 import { resetLoginForm } from "./loginForm"
 import { getBookList } from "./bookList"
+import { resetSignupForm } from "./signupForm"
 
 export const setCurrentUser = user => {
     return {
@@ -35,6 +36,35 @@ export const login = loginInfo => {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(getBookList())
                 dispatch(resetLoginForm())
+            }
+        })
+        .catch(err => console.log(err))
+    }
+}
+
+export const signup = signupInfo => {
+    return (dispatch) => {
+        const newUserInfo = {
+            user: signupInfo
+        }
+        return fetch("http://localhost:3001/signup", {
+            credentials: 'include',
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(newUserInfo)
+        })
+        .then(r => r.json())
+        .then(resp => {
+            console.log(resp)
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(setCurrentUser(resp.data))
+                dispatch(getBookList())
+                dispatch(resetSignupForm())
             }
         })
         .catch(err => console.log(err))

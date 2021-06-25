@@ -3,6 +3,7 @@
 ## To do:
 - [ ] add a license
 - [ ] add a code of conduct 
+- [ ] add/double check validations
 
 ## Overview: 
 - this application will allow users to create a reading log and rate books they have read 

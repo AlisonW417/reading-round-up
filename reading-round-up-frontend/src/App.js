@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Nav from './components/Nav'
 import Login from './components/Login'
-import Logout from './components/Logout'
+import Signup from './components/Signup'
 import MainContainer from './components/MainContainer'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
@@ -20,6 +20,7 @@ class App extends React.Component {
       <div className="App">
         <Nav />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={Signup} />
         <MainContainer />
       </div>
     );
