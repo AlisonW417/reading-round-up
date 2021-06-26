@@ -9,8 +9,9 @@ const Nav = (props) => {
 
     return (
         <div>
-            <NavLink to='/'>Home  |  </NavLink>
-            <NavLink to='/books/new'>Add a New Book</NavLink>
+            <NavLink exact to='/'>Home  |  </NavLink>
+            <NavLink exact to='/books'>My Book List  |  </NavLink>
+            <NavLink exact to='/books/new'>Add a New Book</NavLink>
             { props.currentUser ? <Logout /> : null }
         </div>
     )

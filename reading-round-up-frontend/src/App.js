@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import MainContainer from './components/MainContainer'
+import BookList from './components/BookList'
 import NewBookForm from './components/NewBookForm'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Route exact path='/' render={() => loggedIn ? <MainContainer /> : <Home />}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />
+        <Route exact path='/books' component={BookList} />
         <Route exact path='/books/new' component={NewBookForm} />
       </div>
     );

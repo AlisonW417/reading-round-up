@@ -5,6 +5,12 @@ export const setBookList = books => {
     }
 }
 
+export const clearBookList = () => {
+    return {
+        type: "CLEAR_BOOK_LIST"
+    }
+}
+
 export const getBookList = () => {
     return (dispatch) => {
         return fetch("http://localhost:3001/books", {

@@ -1,6 +1,7 @@
 import { resetLoginForm } from "./loginForm"
 import { getBookList } from "./bookList"
 import { resetSignupForm } from "./signupForm"
+import { clearBookList } from "./bookList"
 
 export const setCurrentUser = user => {
     return {
@@ -76,6 +77,7 @@ export const signup = (signupInfo, history) => {
 export const logout = () => {
     return (dispatch) => {
         dispatch(clearCurrentUser())
+        dispatch(clearBookList())
         return fetch('http://localhost:3001/logout', {
             credentials: 'include',
             method: 'DELETE'
