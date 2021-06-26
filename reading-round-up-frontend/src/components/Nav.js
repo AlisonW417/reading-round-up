@@ -2,16 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 // import Login from './Login.js'
 import Logout from './Logout.js'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const Nav = (props) => {
 
     return (
         <div>
-            { props.currentUser ? <h1>Welcome to Reading Round-up, {props.currentUser.attributes.username}</h1> : <h1>Welcome to Reading Round-up</h1> }
+            <NavLink to='/'>Home  |  </NavLink>
+            <NavLink to='/books/new'>Add a New Book</NavLink>
             { props.currentUser ? <Logout /> : null }
-            <Link to='/'>Home</Link>
         </div>
     )
 }

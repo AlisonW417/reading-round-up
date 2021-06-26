@@ -8,6 +8,7 @@
 - [ ] figure out navigation!
 - [ ] remove users reducer, etc?
 - [ ] add genre to books?? ****
+- [ ] finish create new book functionality
 
 ## Overview: 
 - this application will allow users to create a reading log and rate books they have read 
