@@ -25,7 +25,7 @@ const NewBookForm = ( { newBookFormData, userId, updateNewBookForm, createBook, 
         <form onSubmit={handleOnSubmit}>
             <input placeholder="title" name="title" type="text" value={newBookFormData.title} onChange={handleOnChange} />
             <input placeholder="author" name="author" type="text" value={newBookFormData.author} onChange={handleOnChange} />
-            <input placeholder="date finished" name="date_finished" type="date" value={newBookFormData.dataFinished} onChange={handleOnChange} />
+            <input placeholder="date finished" name="dateFinished" type="date" value={newBookFormData.dataFinished} onChange={handleOnChange} />
             <input placeholder="notes" name="notes" type="textarea" value={newBookFormData.notes} onChange={handleOnChange} />
             <input type="submit" value="Submit" />
         </form>
@@ -33,9 +33,10 @@ const NewBookForm = ( { newBookFormData, userId, updateNewBookForm, createBook, 
 }
 
 const mapStateToProps = state => {
+    const userId = state.currentUser ? state.currentUser.id : ""
     return {
         newBookFormData: state.newBookForm,
-        userId: state.currentUser.id
+        userId
     }
 }
 

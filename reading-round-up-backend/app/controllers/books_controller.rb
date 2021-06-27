@@ -11,7 +11,15 @@ class BooksController < ApplicationController
     end 
 
     def create 
-        byebug
+        @book = current_user.books.build(book_params) 
+        if @book.save
+            render json: BookSerializer.new(@book).serializable_hash.to_json
+        else 
+            response = {
+                error: @book.errors.full_messages.to_sentence
+            }
+            render json: response
+        end 
     end 
 
     private 

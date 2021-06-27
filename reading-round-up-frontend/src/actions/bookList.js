@@ -42,25 +42,25 @@ export const getBookList = () => {
 }
 
 export const createBook = bookData => {
-    const newBookInfo = {
-        trip: {
-            title: bookData.title,
-            author: bookData.author,
-            date_finish: bookData.dateFinished,
-            notes: bookData.notes,
-            user_id: bookData.user_id
-        }
-    }
     return dispatch => {
+        const newBookInfo = {
+            book: {
+                title: bookData.title,
+                author: bookData.author,
+                date_finished: bookData.dateFinished,
+                notes: bookData.notes,
+                user_id: bookData.userId
+            }
+        }
         return fetch('http://localhost:3001/books', {
             credentials: 'include',
             method: 'POST',
-            header: {
+            headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newBookInfo)
         })
         .then(resp => resp.json())
-        .then(resp => console.log(resp))
+        .then(book => console.log(book))
     }
 }
