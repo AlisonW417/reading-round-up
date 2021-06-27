@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateNewBookForm } from '../actions/newBookForm'
+import { createBook } from '../actions/bookList'
 
-const NewBookForm = ( { newBookFormData, updateNewBookForm, history }) => {
+const NewBookForm = ( { newBookFormData, updateNewBookForm, createBook, history }) => {
 
     const handleOnChange = event => {
         const newBookData = {
@@ -14,6 +15,7 @@ const NewBookForm = ( { newBookFormData, updateNewBookForm, history }) => {
 
     const handleOnSubmit = event => {
         event.preventDefault()
+        createBook(newBookFormData)
     }
 
     return (
@@ -33,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateNewBookForm })(NewBookForm);
+export default connect(mapStateToProps, { updateNewBookForm, createBook })(NewBookForm);

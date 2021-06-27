@@ -9,4 +9,8 @@ class BooksController < ApplicationController
             }
         end
     end 
+
+    def create 
+        byebug
+    end 
 end

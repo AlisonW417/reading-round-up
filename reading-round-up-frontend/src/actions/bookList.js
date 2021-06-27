@@ -11,6 +11,13 @@ export const clearBookList = () => {
     }
 }
 
+export const addBook = (book) => {
+    return {
+        type: "ADD_BOOK",
+        book
+    }
+}
+
 export const getBookList = () => {
     return (dispatch) => {
         return fetch("http://localhost:3001/books", {
@@ -31,5 +38,20 @@ export const getBookList = () => {
             }
         })
         .catch(err => console.log(err))
+    }
+}
+
+export const createBook = bookData => {
+    return dispatch => {
+        return fetch('http://localhost:3001/books', {
+            credentials: 'include',
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bookData)
+        })
+        .then(resp => resp.json())
+        .then(resp => console.log(resp))
     }
 }
