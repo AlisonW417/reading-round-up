@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateNewBookForm } from '../actions/newBookForm'
 import { createBook } from '../actions/bookList'
 
-const NewBookForm = ( { newBookFormData, updateNewBookForm, createBook, history }) => {
+const NewBookForm = ( { newBookFormData, userId, updateNewBookForm, createBook, history }) => {
 
     const handleOnChange = event => {
         const newBookData = {
@@ -15,14 +15,17 @@ const NewBookForm = ( { newBookFormData, updateNewBookForm, createBook, history 
 
     const handleOnSubmit = event => {
         event.preventDefault()
-        createBook(newBookFormData)
+        createBook({
+            ...newBookFormData,
+            userId
+        })
     }
 
     return (
         <form onSubmit={handleOnSubmit}>
             <input placeholder="title" name="title" type="text" value={newBookFormData.title} onChange={handleOnChange} />
             <input placeholder="author" name="author" type="text" value={newBookFormData.author} onChange={handleOnChange} />
-            <input placeholder="date finished" name="date_finished" type="date" value={newBookFormData.data_finished} onChange={handleOnChange} />
+            <input placeholder="date finished" name="date_finished" type="date" value={newBookFormData.dataFinished} onChange={handleOnChange} />
             <input placeholder="notes" name="notes" type="textarea" value={newBookFormData.notes} onChange={handleOnChange} />
             <input type="submit" value="Submit" />
         </form>
@@ -31,7 +34,8 @@ const NewBookForm = ( { newBookFormData, updateNewBookForm, createBook, history 
 
 const mapStateToProps = state => {
     return {
-        newBookFormData: state.newBookForm
+        newBookFormData: state.newBookForm,
+        userId: state.currentUser.id
     }
 }
 

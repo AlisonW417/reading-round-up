@@ -1,7 +1,7 @@
 const initialState = {
     title: "",
     author: "",
-    date_finished: "",
+    dateFinished: "",
     notes: ""
 }
 

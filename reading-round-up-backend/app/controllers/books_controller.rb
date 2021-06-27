@@ -13,4 +13,9 @@ class BooksController < ApplicationController
     def create 
         byebug
     end 
+
+    private 
+    def book_params
+        params.require(:book).permit(:title, :author, :date_finished, :notes, :user_id)
+    end 
 end

@@ -42,6 +42,15 @@ export const getBookList = () => {
 }
 
 export const createBook = bookData => {
+    const newBookInfo = {
+        trip: {
+            title: bookData.title,
+            author: bookData.author,
+            date_finish: bookData.dateFinished,
+            notes: bookData.notes,
+            user_id: bookData.user_id
+        }
+    }
     return dispatch => {
         return fetch('http://localhost:3001/books', {
             credentials: 'include',
@@ -49,7 +58,7 @@ export const createBook = bookData => {
             header: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(bookData)
+            body: JSON.stringify(newBookInfo)
         })
         .then(resp => resp.json())
         .then(resp => console.log(resp))
