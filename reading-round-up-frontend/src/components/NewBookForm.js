@@ -18,7 +18,7 @@ const NewBookForm = ( { newBookFormData, userId, updateNewBookForm, createBook, 
         createBook({
             ...newBookFormData,
             userId
-        })
+        }, history)
     }
 
     return (

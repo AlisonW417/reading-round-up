@@ -1,3 +1,5 @@
+import { resetNewBookForm } from "./newBookForm"
+
 export const setBookList = books => {
     return {
         type: "SET_BOOK_LIST",
@@ -41,7 +43,7 @@ export const getBookList = () => {
     }
 }
 
-export const createBook = bookData => {
+export const createBook = (bookData, history) => {
     return dispatch => {
         const newBookInfo = {
             book: {
@@ -61,6 +63,14 @@ export const createBook = bookData => {
             body: JSON.stringify(newBookInfo)
         })
         .then(resp => resp.json())
-        .then(book => console.log(book))
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(addBook(resp.data))
+                dispatch(resetNewBookForm())
+                history.push(`/books/${resp.data.id}`)
+            }
+        })
     }
 }

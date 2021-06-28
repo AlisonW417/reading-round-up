@@ -5,7 +5,7 @@ const bookList = (state = [], action) => {
         case "CLEAR_BOOK_LIST":
             return []
         case "ADD_BOOK":
-            return state.books.concat(action.trips)
+            return state.concat(action.book)
         default:
             return state
     }
