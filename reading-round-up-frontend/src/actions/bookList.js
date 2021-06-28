@@ -1,4 +1,5 @@
 import { resetNewBookForm } from "./newBookForm"
+import { resetEditBookForm } from "./editBookForm"
 
 export const setBookList = books => {
     return {
@@ -16,6 +17,13 @@ export const clearBookList = () => {
 export const addBook = (book) => {
     return {
         type: "ADD_BOOK",
+        book
+    }
+}
+
+export const updateBookSuccess = (book) => {
+    return {
+        type: "UPDATE_BOOK",
         book
     }
 }
@@ -83,7 +91,7 @@ export const updateBook = (bookData, history) => {
                 author: bookData.author,
                 date_finished: bookData.dateFinished,
                 notes: bookData.notes,
-                user_id: bookData.userId
+                user_id: bookData.userId,
             }
         }
         return fetch(`http://localhost:3001/books/${bookData.bookId}`, {
@@ -94,15 +102,16 @@ export const updateBook = (bookData, history) => {
             },
             body: JSON.stringify(updatedBookInfo)
         })
-        // .then(resp => resp.json())
-        // .then(resp => {
-        //     if (resp.error) {
-        //         alert(resp.error)
-        //     } else {
-        //         dispatch(addBook(resp.data))
-        //         dispatch(resetNewBookForm())
-        //         history.push(`/books/${resp.data.id}`)
-        //     }
-        // })
+        .then(resp => resp.json())
+        .then(resp => {
+            console.log(resp)
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(updateBookSuccess(resp.data))
+                dispatch(resetEditBookForm())
+                history.push(`/books/${resp.data.id}`)
+            }
+        })
     }
 }

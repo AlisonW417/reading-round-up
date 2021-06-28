@@ -23,7 +23,15 @@ class BooksController < ApplicationController
     end 
 
     def update 
-        byebug
+        @book = Book.find(params[:id])
+        if @book.update(book_params)
+            render json: BookSerializer.new(@book).serializable_hash.to_json
+        else 
+            response = {
+                error: @book.errors.full_messages.to_sentence
+            }
+            render json: response
+        end 
     end 
 
     private 

@@ -9,6 +9,12 @@ class EditBookForm extends React.Component {
         this.props.book && this.props.setFormDataToEdit(this.props.book)
     }
 
+    componentDidUpdate(prevProps) {
+        this.props.book && !prevProps.book && this.props.setFormDataToEdit(this.props.book)
+    }
+
+    
+
     handleOnChange = event => {
         const { editBookFormData } = this.props
         const updatedBookData = {
@@ -29,13 +35,12 @@ class EditBookForm extends React.Component {
     }
 
     render () {
-        const { editBookFormData } = this.props
         return (
             <form onSubmit={this.handleOnSubmit}>
-                <input placeholder="title" name="title" type="text" value={editBookFormData.title} onChange={this.handleOnChange} />
-                <input placeholder="author" name="author" type="text" value={editBookFormData.author} onChange={this.handleOnChange} />
-                <input placeholder="date finished" name="dateFinished" type="date" value={editBookFormData.dataFinished} onChange={this.handleOnChange} />
-                <input placeholder="notes" name="notes" type="textarea" value={editBookFormData.notes} onChange={this.handleOnChange} />
+                <input placeholder="title" name="title" type="text" value={this.props.editBookFormData.title} onChange={this.handleOnChange} />
+                <input placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
+                <input placeholder="date finished" name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
+                <input placeholder="notes" name="notes" type="textarea" value={this.props.editBookFormData.notes} onChange={this.handleOnChange} />
                 <input type="submit" value="Submit" />
             </form>
         )
