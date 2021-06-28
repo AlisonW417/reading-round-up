@@ -34,6 +34,13 @@ class BooksController < ApplicationController
         end 
     end 
 
+    def destroy 
+        @book = Book.find(params[:id])
+        if @book.destroy 
+            render json: {message: "Book successfully deleted"}
+        end 
+    end 
+
     private 
     def book_params
         params.require(:book).permit(:title, :author, :date_finished, :notes, :user_id)

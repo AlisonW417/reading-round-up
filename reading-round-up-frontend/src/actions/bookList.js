@@ -28,6 +28,13 @@ export const updateBookSuccess = (book) => {
     }
 }
 
+export const deleteBookSuccess = (bookId) => {
+    return {
+        type: "DELETE_BOOK",
+        bookId
+    }
+}
+
 export const getBookList = () => {
     return (dispatch) => {
         return fetch("http://localhost:3001/books", {
@@ -112,6 +119,24 @@ export const updateBook = (bookData, history) => {
                 dispatch(resetEditBookForm())
                 history.push(`/books/${resp.data.id}`)
             }
+        })
+    }
+}
+
+export const deleteBook = (bookId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/books/${bookId}`, {
+            credentials: 'include',
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            console.log(resp)
+            dispatch(deleteBookSuccess(bookId))
+            history.push('/')
         })
     }
 }

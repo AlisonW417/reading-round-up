@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateEditBookForm } from '../actions/editBookForm'
 import { setFormDataToEdit } from '../actions/editBookForm'
-import { updateBook } from '../actions/bookList'
+import { updateBook, deleteBook } from '../actions/bookList'
 
 class EditBookForm extends React.Component {
     componentDidMount() {
@@ -12,8 +12,6 @@ class EditBookForm extends React.Component {
     componentDidUpdate(prevProps) {
         this.props.book && !prevProps.book && this.props.setFormDataToEdit(this.props.book)
     }
-
-    
 
     handleOnChange = event => {
         const { editBookFormData } = this.props
@@ -34,6 +32,11 @@ class EditBookForm extends React.Component {
         }, history)
     }
 
+    handleOnClick = () => {
+        const bookId = this.props.book ? this.props.book.id : null
+        this.props.deleteBook(bookId, this.props.history)
+    }
+
     render () {
         return (
             <form onSubmit={this.handleOnSubmit}>
@@ -41,7 +44,8 @@ class EditBookForm extends React.Component {
                 <input placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
                 <input placeholder="date finished" name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
                 <input placeholder="notes" name="notes" type="textarea" value={this.props.editBookFormData.notes} onChange={this.handleOnChange} />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Update Book" />
+                <button onClick={this.handleOnClick}>Delete Book</button>
             </form>
         )
     }
@@ -55,4 +59,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateEditBookForm, updateBook, setFormDataToEdit })(EditBookForm);
+export default connect(mapStateToProps, { updateEditBookForm, updateBook, setFormDataToEdit, deleteBook })(EditBookForm);
