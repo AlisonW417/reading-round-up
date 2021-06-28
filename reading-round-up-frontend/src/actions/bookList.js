@@ -74,3 +74,35 @@ export const createBook = (bookData, history) => {
         })
     }
 }
+
+export const updateBook = (bookData, history) => {
+    return dispatch => {
+        const updatedBookInfo = {
+            book: {
+                title: bookData.title,
+                author: bookData.author,
+                date_finished: bookData.dateFinished,
+                notes: bookData.notes,
+                user_id: bookData.userId
+            }
+        }
+        return fetch(`http://localhost:3001/books/${bookData.bookId}`, {
+            credentials: 'include',
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedBookInfo)
+        })
+        // .then(resp => resp.json())
+        // .then(resp => {
+        //     if (resp.error) {
+        //         alert(resp.error)
+        //     } else {
+        //         dispatch(addBook(resp.data))
+        //         dispatch(resetNewBookForm())
+        //         history.push(`/books/${resp.data.id}`)
+        //     }
+        // })
+    }
+}

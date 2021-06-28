@@ -8,6 +8,7 @@ import MainContainer from './components/MainContainer'
 import BookList from './components/BookList'
 import NewBookForm from './components/NewBookForm'
 import BookCard from './components/BookCard';
+import EditBookForm from './components/EditBookForm'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import { Route } from 'react-router-dom'
@@ -35,7 +36,7 @@ class App extends React.Component {
         }/>
         <Route exact path='/books/:id/edit' render={props => {
             const book = bookList.find(book => book.id === props.match.params.id)
-            return <NewBookForm book={book} {...props} />
+            return <EditBookForm book={book} {...props} />
           }
         }/>
       </div>

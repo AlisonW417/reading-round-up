@@ -22,6 +22,10 @@ class BooksController < ApplicationController
         end 
     end 
 
+    def update 
+        byebug
+    end 
+
     private 
     def book_params
         params.require(:book).permit(:title, :author, :date_finished, :notes, :user_id)
