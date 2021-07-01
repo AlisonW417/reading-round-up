@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -23,7 +23,7 @@ class App extends React.Component {
     const { loggedIn, bookList } = this.props
     return (
       <div className="App">
-        <Nav />
+        <Navigation />
         <Route exact path='/' render={() => loggedIn ? <MainContainer /> : <Home />}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />

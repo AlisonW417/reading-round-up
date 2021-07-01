@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { updateEditBookForm } from '../actions/editBookForm'
 import { setFormDataToEdit } from '../actions/editBookForm'
 import { updateBook, deleteBook } from '../actions/bookList'
+import { Form, Button, Container } from 'react-bootstrap'
 
 class EditBookForm extends React.Component {
     componentDidMount() {
@@ -39,14 +40,26 @@ class EditBookForm extends React.Component {
 
     render () {
         return (
-            <form onSubmit={this.handleOnSubmit}>
-                <input placeholder="title" name="title" type="text" value={this.props.editBookFormData.title} onChange={this.handleOnChange} />
-                <input placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
-                <input placeholder="date finished" name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
-                <input placeholder="notes" name="notes" type="textarea" value={this.props.editBookFormData.notes} onChange={this.handleOnChange} />
-                <input type="submit" value="Update Book" />
-                <button onClick={this.handleOnClick}>Delete Book</button>
-            </form>
+            <Container>
+                <Form onSubmit={this.handleOnSubmit}>
+                    <Form.Group>
+                        <Form.Control placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control placeholder="title" name="title" type="text" value={this.props.editBookFormData.title} onChange={this.handleOnChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control placeholder="date finished" name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control placeholder="notes" name="notes" type="textarea" value={this.props.editBookFormData.notes} onChange={this.handleOnChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Button variant="primary" type="submit">Update Book</Button>
+                    </Form.Group>
+                        <Button variant="danger" onClick={this.handleOnClick}>Delete Book</Button>
+                </Form>
+            </Container>
         )
     }
 }

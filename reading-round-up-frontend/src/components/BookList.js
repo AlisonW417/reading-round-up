@@ -1,12 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import BookCard from './BookCard'
+import { Container, CardDeck } from 'react-bootstrap'
 
 const BookList = (props) => {
     const bookCards = props.books.map(book => <BookCard book={book} key={book.id} />)
     return (
-        // move this logic?
-        bookCards.length > 0 ? bookCards : null
+        <Container>
+            <CardDeck>
+                { bookCards.length > 0 ? bookCards : null }
+            </CardDeck>
+        </Container>
     )
 }
 
