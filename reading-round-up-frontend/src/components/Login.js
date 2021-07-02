@@ -20,6 +20,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
     return (
         <Container>
+            <h2>Welcome Back! Please log in.</h2>
             <Form onSubmit={ handleOnSubmit }>
                 <Form.Group>
                     <Form.Control placeholder="username" name="username" type="text" value={ loginFormData.username } onChange={ handleOnChange } />

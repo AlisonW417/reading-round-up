@@ -97,9 +97,8 @@ export const getCurrentUser = () => {
         })
         .then(r => r.json())
         .then(resp => {
-            console.log(resp)
             if (resp.error) {
-                alert(resp.error)
+                console.log(resp.error)
             } else {
                 dispatch(setCurrentUser(resp.data))
                 dispatch(getBookList())

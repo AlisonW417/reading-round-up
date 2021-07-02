@@ -20,6 +20,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
 
     return (
         <Container>
+            <h2>Welcome to Reading Round-up! Sign up to start logging your books.</h2>
             <Form onSubmit={ handleOnSubmit }>
                 <Form.Group>
                     <Form.Control placeholder="name" name="name" type="text" value={ signupFormData.name } onChange={ handleOnChange } />

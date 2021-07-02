@@ -10,13 +10,19 @@ const Navigation = (props) => {
 
     return (
         <Container>
-            <Navbar>
-                <Navbar.Brand href='/'>Reading Round-up</Navbar.Brand>
-                <Nav>
-                    <Nav.Link href='/books'>My Book List</Nav.Link>
-                    <Nav.Link href='/books/new'>Add a New Book</Nav.Link>
-                    { props.currentUser ? <Logout /> : null }
-                </Nav>
+            <Navbar bg="primary" variant="dark" className="mb-3">
+                <Container>
+                    <Navbar.Brand href='/'>Reading Round-up</Navbar.Brand>
+                    <Navbar.Collapse>
+                    { props.currentUser ? 
+                    <Nav className="me-auto">
+                        
+                        <Nav.Link href='/books'>My Book List</Nav.Link>
+                        <Nav.Link href='/books/new'>Add a New Book</Nav.Link>
+                    </Nav> : null }
+                    </Navbar.Collapse>
+                    <Nav className="justify-content-end">{ props.currentUser ? <Logout /> : null }</Nav>
+                </Container>
             </Navbar>
         </Container>
     )

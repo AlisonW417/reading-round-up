@@ -41,12 +41,13 @@ class EditBookForm extends React.Component {
     render () {
         return (
             <Container>
+                <h2>Editing {this.props.editBookFormData.title} </h2>
                 <Form onSubmit={this.handleOnSubmit}>
                     <Form.Group>
-                        <Form.Control placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
+                        <Form.Control placeholder="title" name="title" type="text" value={this.props.editBookFormData.title} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Control placeholder="title" name="title" type="text" value={this.props.editBookFormData.title} onChange={this.handleOnChange} />
+                        <Form.Control placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Form.Group>
                         <Form.Control placeholder="date finished" name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />

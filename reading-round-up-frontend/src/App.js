@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation'
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import MainContainer from './components/MainContainer'
 import BookList from './components/BookList'
 import NewBookForm from './components/NewBookForm'
 import BookCard from './components/BookCard';
@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navigation />
-        <Route exact path='/' render={() => loggedIn ? <MainContainer /> : <Home />}/>
+        <Route exact path='/' render={() => loggedIn ? <BookList /> : <Home />}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/books' component={BookList} />

@@ -24,12 +24,13 @@ const NewBookForm = ( { newBookFormData, userId, updateNewBookForm, createBook, 
 
     return (
         <Container>
+            <h2>Add a new book to your reading round-up!</h2>
             <Form onSubmit={handleOnSubmit}>
                 <Form.Group>
-                    <Form.Control placeholder="author" name="author" type="text" value={newBookFormData.author} onChange={handleOnChange} />
+                    <Form.Control placeholder="title" name="title" type="text" value={newBookFormData.title} onChange={handleOnChange} />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control placeholder="title" name="title" type="text" value={newBookFormData.title} onChange={handleOnChange} />
+                    <Form.Control placeholder="author" name="author" type="text" value={newBookFormData.author} onChange={handleOnChange} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Control placeholder="date finished" name="dateFinished" type="date" value={newBookFormData.dataFinished} onChange={handleOnChange} />
