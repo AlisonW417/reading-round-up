@@ -1,10 +1,4 @@
-# Project Notes 
-
-## To do:
-- [ ] add a license
-- [ ] add a code of conduct 
-- [ ] add/double check validations
-- [ ] remove no one is logged in alert and other unnecessary messages in console
+# Project Notes
 
 ## Overview: 
 - this application will allow users to create a reading log of books they have read 
