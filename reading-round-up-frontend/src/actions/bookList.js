@@ -98,7 +98,7 @@ export const updateBook = (bookData, history) => {
                 author: bookData.author,
                 date_finished: bookData.dateFinished,
                 notes: bookData.notes,
-                user_id: bookData.userId,
+                user_id: bookData.userId
             }
         }
         return fetch(`http://localhost:3001/books/${bookData.bookId}`, {

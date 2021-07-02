@@ -2,7 +2,8 @@ const initialState = {
     title: "",
     author: "",
     dateFinished: "",
-    notes: ""
+    notes: "",
+    rating: ""
 }
 
 const newBookForm = (state = initialState, action) => {

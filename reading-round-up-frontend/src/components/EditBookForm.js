@@ -50,7 +50,7 @@ class EditBookForm extends React.Component {
                         <Form.Control placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Control placeholder="date finished" name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
+                        <Form.Control name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Form.Group>
                         <Form.Control placeholder="notes" name="notes" type="textarea" value={this.props.editBookFormData.notes} onChange={this.handleOnChange} />
