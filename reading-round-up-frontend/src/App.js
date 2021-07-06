@@ -5,7 +5,7 @@ import Navigation from './components/Navigation'
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import BookList from './components/BookList'
+import MainContainer from './components/MainContainer'
 import NewBookForm from './components/NewBookForm'
 import BookCard from './components/BookCard';
 import EditBookForm from './components/EditBookForm'
@@ -24,10 +24,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navigation />
-        <Route exact path='/' render={() => loggedIn ? <BookList /> : <Home />}/>
+        <Route exact path='/' render={() => loggedIn ? <MainContainer /> : <Home />}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />
-        <Route exact path='/books' component={BookList} />
+        <Route exact path='/books' component={MainContainer} />
         <Route exact path='/books/new' component={NewBookForm} />
         <Route exact path='/books/:id' render={props => {
             const book = bookList.find(book => book.id === props.match.params.id)
