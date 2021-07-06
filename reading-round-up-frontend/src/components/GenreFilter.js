@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Button } from 'react-bootstrap'
+import { Container, Form, Button } from 'react-bootstrap'
 
 const GenreFilter = ({ books }) => {
     const handleOnSubmit = (event) => {
@@ -11,16 +11,18 @@ const GenreFilter = ({ books }) => {
         <Container>
             <div>
                 <h4>View Books by Genre</h4>
-                <form onSubmit={handleOnSubmit}>
-                    <select>
-                        <option value="Non-fiction">Non-Fiction</option>
-                        <option value="Classics">Classics</option>
-                        <option value="Historical Fiction">Historical Fiction</option>
-                        <option value="Mystery">Mystery/Thriller</option>
-                        <option value="Other">Other</option>
-                    </select>  
+                <Form onSubmit={handleOnSubmit}>
+                    <Form.Group>
+                        <Form.Control as="select">
+                            <option value="Non-fiction">Non-Fiction</option>
+                            <option value="Classics">Classics</option>
+                            <option value="Historical Fiction">Historical Fiction</option>
+                            <option value="Mystery">Mystery/Thriller</option>
+                            <option value="Other">Other</option>
+                        </Form.Control> 
+                    </Form.Group> 
                     <Button type="submit">Select Genre</Button>
-                </form>         
+                </Form>         
             </div>
         </Container>
         
