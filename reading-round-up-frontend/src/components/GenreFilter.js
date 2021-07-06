@@ -4,7 +4,11 @@ import { Container, Form, Button } from 'react-bootstrap'
 const GenreFilter = ({ books }) => {
     const handleOnSubmit = (event) => {
         event.preventDefault()
-        // const selectedGenre = books.filter(book => book.genre === event.target.value)
+        debugger
+        // const selectedGenre = books.filter(book => book.genre === event.target.selected.value)
+    }
+    const handleOnChange = () => {
+        debugger
     }
 
     return (
@@ -13,7 +17,7 @@ const GenreFilter = ({ books }) => {
                 <h4>View Books by Genre</h4>
                 <Form onSubmit={handleOnSubmit}>
                     <Form.Group>
-                        <Form.Control as="select">
+                        <Form.Control as="select" onChange={handleOnChange}>
                             <option value="Non-fiction">Non-Fiction</option>
                             <option value="Classics">Classics</option>
                             <option value="Historical Fiction">Historical Fiction</option>
