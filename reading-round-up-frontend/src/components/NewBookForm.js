@@ -33,6 +33,15 @@ const NewBookForm = ( { newBookFormData, userId, updateNewBookForm, createBook, 
                     <Form.Control placeholder="author" name="author" type="text" value={newBookFormData.author} onChange={handleOnChange} />
                 </Form.Group>
                 <Form.Group>
+                    <Form.Control as="select" placeholder="genre" name="genre" type="select" value={newBookFormData.genre} onChange={handleOnChange}>
+                        <option value="Non-fiction">Non-Fiction</option>
+                        <option value="Classics">Classics</option>
+                        <option value="Historical Fiction">Historical Fiction</option>
+                        <option value="Mystery">Mystery/Thriller</option>
+                        <option value="Other">Other</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group>
                     <Form.Control placeholder="date finished" name="dateFinished" type="date" value={newBookFormData.dataFinished} onChange={handleOnChange} />
                 </Form.Group>
                 <Form.Group>

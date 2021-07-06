@@ -64,6 +64,7 @@ export const createBook = (bookData, history) => {
             book: {
                 title: bookData.title,
                 author: bookData.author,
+                genre: bookData.genre,
                 date_finished: bookData.dateFinished,
                 notes: bookData.notes,
                 user_id: bookData.userId
@@ -96,6 +97,7 @@ export const updateBook = (bookData, history) => {
             book: {
                 title: bookData.title,
                 author: bookData.author,
+                genre: bookData.genre,
                 date_finished: bookData.dateFinished,
                 notes: bookData.notes,
                 user_id: bookData.userId

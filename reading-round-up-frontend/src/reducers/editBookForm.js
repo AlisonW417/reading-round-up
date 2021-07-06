@@ -1,6 +1,7 @@
 const initialState = {
     title: "",
     author: "",
+    genre: "",
     dateFinished: "",
     notes: ""
 }

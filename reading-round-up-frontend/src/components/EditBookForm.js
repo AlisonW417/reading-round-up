@@ -50,6 +50,15 @@ class EditBookForm extends React.Component {
                         <Form.Control placeholder="author" name="author" type="text" value={this.props.editBookFormData.author} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Form.Group>
+                    <Form.Control as="select" name="genre" type="select" value={this.props.editBookFormData.genre} onChange={this.handleOnChange}>
+                        <option value="Non-fiction">Non-Fiction</option>
+                        <option value="Classics">Classics</option>
+                        <option value="Historical Fiction">Historical Fiction</option>
+                        <option value="Mystery">Mystery/Thriller</option>
+                        <option value="Other">Other</option>
+                    </Form.Control>
+                </Form.Group>
+                    <Form.Group>
                         <Form.Control name="dateFinished" type="date" value={this.props.editBookFormData.dataFinished} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Form.Group>
