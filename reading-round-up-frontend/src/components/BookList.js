@@ -9,7 +9,7 @@ const BookList = ({books}) => {
         <Container>
             <h1>My Book List</h1>
             <CardDeck>
-                { bookCards.length > 0 ? bookCards : <h2>No books logged yet. Add a book to get started!</h2> }
+                { bookCards.length > 0 ? bookCards : null }
             </CardDeck>
         </Container>
     )

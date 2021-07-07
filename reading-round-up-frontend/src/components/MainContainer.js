@@ -7,22 +7,12 @@ import { Container } from 'react-bootstrap'
 
 const MainContainer = ({ books, currentUser }) => {
     return (
-        currentUser ? 
         <Container>
-            <div> 
+            <div>
                 <ImageContainer />
             </div>
             <div>
-                <BookList books={books} />
-            </div>
-        </Container>
-        : 
-        <Container>
-            <div> 
-                <ImageContainer />
-            </div>
-            <div>
-                <Home />
+                { currentUser ? <BookList books={books} /> : <Home /> }
             </div>
         </Container>
     )
