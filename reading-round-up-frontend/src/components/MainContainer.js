@@ -1,16 +1,28 @@
 import React from 'react'
+import ImageContainer from './ImageContainer'
 import BookList from './BookList'
-import GenreFilter from './GenreFilter'
+import Home from './Home'
+// import GenreFilter from './GenreFilter'
 import { Container } from 'react-bootstrap'
 
-const MainContainer = ({ books }) => {
+const MainContainer = ({ books, currentUser }) => {
     return (
+        currentUser ? 
         <Container>
             <div> 
-                <GenreFilter books={books} />
+                <ImageContainer />
             </div>
             <div>
-                <BookList />
+                <BookList books={books} />
+            </div>
+        </Container>
+        : 
+        <Container>
+            <div> 
+                <ImageContainer />
+            </div>
+            <div>
+                <Home />
             </div>
         </Container>
     )
