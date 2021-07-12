@@ -3,6 +3,7 @@ import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 
 const BookCard = ({ book }) => {
+
     return (
         book ?
         <Row className="mb-3 justify-content-center">
